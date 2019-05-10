@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row m-4">
+        <mat-card class="book-card col-4 mb-8" *ngFor="let book of books">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>{{book.title}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{book.description}}</p>
+                <p>{{book.author}}</p>
+                <br><br>
+                <p>{{book._id}}</p>
+                <button mat-raised-button color="primary" [routerLink]="['/books', book._id]"> View </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
