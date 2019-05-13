@@ -21,4 +21,11 @@ export class Bookservice {
             map(res => res));
     }
 
+    getBookById(id: any) {
+        return this._http.get<Book>(this.API_BASE_URL+ '/books/'+ id).pipe(
+            map(res => res)
+        );
+    }
+
+    
 }

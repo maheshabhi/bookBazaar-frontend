@@ -22,7 +22,7 @@ import { Bookservice } from './books.service';
     ], 
 
     declarations: [
-        BooksComponent, BooksListComponent, BookDetailComponent, BookCreateComponent
+        BooksComponent, BooksListComponent, BookDetailComponent, BookCreateComponent,
     ], 
     providers: [Bookservice]
 })
