@@ -1,3 +1,46 @@
-<p>
-  book-create works!
-</p>
+<div class="container">
+    <div class="row m-4">
+        <div class="col-md-3 mx-auto">
+            <div class="bookForm">
+                <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+                    <div>
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="title" placeholder="Title" />
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="author" placeholder="Author"  />
+                        </mat-form-field>
+                    </div>
+                    
+                    <div>
+                        <mat-form-field>
+                            <textarea matInput formControlName="description" placeholder="Description"></textarea>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="publisher" placeholder="Publisher" />
+                        </mat-form-field>
+                    </div>
+                    
+                    <div>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" formControlName="publishedYear" placeholder="Choose a date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="text-right">
+                        <!-- <input [disabled]="!bookForm.valid" type="submit" mat-raised-button color="primary"/> -->
+                        <button type="submit" mat-raised-button [disabled]="!bookForm.valid" color="primary">Submit</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>

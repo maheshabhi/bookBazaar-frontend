@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from "../../environments/environment";
 
 import { map } from "rxjs/operators";
@@ -21,4 +21,22 @@ export class Bookservice {
             map(res => res));
     }
 
+    getBookById(id: any) {
+        return this._http.get<Book>(this.API_BASE_URL + '/books/:id').pipe(
+            map(res => res)
+        );
+    }
+
+    addBook(data: Book) {
+        console.log("Adding a book", data);
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+          };
+        console.log("Adding a book", data, httpOptions);
+        return this._http.post<Book>(this.API_BASE_URL + '/books', data, httpOptions).pipe(
+            map(res => res)
+        );
+    }
 }
