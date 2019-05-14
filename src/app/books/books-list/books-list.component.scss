@@ -1,0 +1,20 @@
+.book-card {
+    max-width: 400px;
+    .book-img {
+        padding: 32px;
+        max-height: 270px;
+    }
+    mat-card-content {
+        cursor: pointer;
+    }
+    mat-card-footer {
+        .book-author-image {
+            background-image: url('../../../assets/images/author-placeholder.png');
+            background-size: cover;
+        }
+        .mat-card-title{
+            font-size: 18px;
+        }
+    }
+    
+}

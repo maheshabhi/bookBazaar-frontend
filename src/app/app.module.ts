@@ -10,20 +10,21 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { MatIconModule } from "@angular/material/icon"; 
+import { ConfirmDialogComponent } from "./dialog/confirmDialog.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        PageNotFoundComponent,
-        HeaderComponent
+        AppComponent,PageNotFoundComponent, HeaderComponent, 
+        ConfirmDialogComponent
     ],
     imports: [
-        BrowserModule, BrowserAnimationsModule, 
-        BooksModule, AppRoutingModule, MatIconModule, MatToolbarModule
+        BrowserModule, BrowserAnimationsModule, BooksModule, AppRoutingModule, 
+        MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule
     ],
-    providers: [
-        
-    ],
+    providers: [],
+    entryComponents: [ ConfirmDialogComponent ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

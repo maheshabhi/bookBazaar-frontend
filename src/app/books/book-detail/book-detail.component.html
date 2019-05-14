@@ -1,3 +1,53 @@
-<p>
-  book-detail works!
-</p>
+<div class="container" *ngFor="let bk of book" >
+    <div class="row m-4">
+        <div class="previous-section">
+            <a href="javascript:void(0)" (click)="goBack()" class="previous">&#8592;</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="book-detail">
+                <div class="mb-5 mx-auto d-flex justify-content-center">
+                    <div class="book-image">
+                        <img src="../../../assets/images/book-placeholder.jfif" alt="book image" title="{{bk.title}}">
+                    </div>
+                </div>
+                <div class="social-icons">
+                    
+                </div>
+                <div class="book-desc mt-2">
+                    <h5> About the Book </h5>
+                    <p> {{bk.description}} </p>
+                </div>
+                <div class="">
+                    <h5>Author website</h5>
+                    <a href="javascript:void(0)" > http://matthampshire.blog</a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+        </div>
+    </div>
+
+    <div class="row author-details m-4">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 col-xs-6">
+                    <img src="../../../assets/images/author-placeholder.png" alt="Author" title="{{bk.author}}" />
+                </div>
+                <div class="col-md-8 col-xs-6">
+                    <p>{{bk.author}}</p>
+                </div>
+            </div>
+                 </div>
+        <div class="col-md-8"> 
+            <div class="author-detail">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur cumque sint commodi aliquid  repellat, inventore, 
+                    nesciunt pariatur saepe labore numquam natus, obcaecati similique molestias maiores? Distinctio praesentium voluptatibus quae illum!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

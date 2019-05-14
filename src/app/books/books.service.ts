@@ -22,7 +22,7 @@ export class Bookservice {
     }
 
     getBookById(id: any) {
-        return this._http.get<Book>(this.API_BASE_URL + '/books/:id').pipe(
+        return this._http.get<Book>(this.API_BASE_URL+ '/books/'+ id).pipe(
             map(res => res)
         );
     }
@@ -39,4 +39,5 @@ export class Bookservice {
             map(res => res)
         );
     }
+    
 }

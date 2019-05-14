@@ -1,23 +1,30 @@
 <div class="container">
-    <div class="row m-4">
-        <div class="float-sm-right">
-            <button mat-raised-button [routerLink]="['/book/addBook']"> Add Book </button>
+    <div class="row mt-4 justify-content-end">
+        <div class="add-book">
+            <button mat-raised-button color="primary" (click)="addBook()"> Add Book</button>
         </div>
     </div>
     <div class="row m-4">
-        <mat-card class="book-card col-md-4 mb-8" *ngFor="let book of books">
-            <mat-card-header>
-                <mat-card-title>
-                    <h3> {{book.title}} </h3>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <p> {{book.description}} </p>
-                <p> {{book.author}} </p>
+        <mat-card class="book-card col-md-3 mb-8" *ngFor="let book of books">
+            <mat-card-content [routerLink]="['/books', book._id]">
+                <!-- <p>{{book.description}}</p>
+                <p>{{book.author}}</p>
                 <br><br>
-                <p> {{book._id}} </p>
-                <button mat-raised-button color="primary" [routerLink]="['/books', book._id]"> View </button>
+                <p>{{book._id}}</p>
+                <button mat-raised-button color="primary" [routerLink]="['/books', book._id]"> View </button> -->
+                <img class="book-img" mat-card-image src="../../../assets/images/book-placeholder.jfif" alt="Photo of a Shiba Inu">
             </mat-card-content>
+            <mat-card-footer>
+                <div class="row p-3">
+                    <div class="col-md-3">
+                        <div mat-card-avatar class="book-author-image"></div>
+                    </div>
+                    <div class="col-md-9">
+                        <mat-card-title>{{book.title}}</mat-card-title>
+                        <mat-card-subtitle>By {{book.author}}</mat-card-subtitle>
+                    </div>
+                </div>
+            </mat-card-footer>
         </mat-card>
     </div>
 </div>

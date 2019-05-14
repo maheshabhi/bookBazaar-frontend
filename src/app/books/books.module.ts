@@ -31,7 +31,7 @@ import { AuthInterceptor } from "../auth.interceptor";
     ], 
 
     declarations: [
-        BooksComponent, BooksListComponent, BookDetailComponent, BookCreateComponent
+        BooksComponent, BooksListComponent, BookDetailComponent, BookCreateComponent,
     ], 
     providers: [Bookservice, MatDatepickerModule
     ]
