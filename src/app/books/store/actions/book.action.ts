@@ -1,7 +1,6 @@
 import { Action } from '@ngrx/store';
 
 import { IBook } from '../../book';
-import { read } from 'fs';
 
 export enum EBookActions {
     GetBooks = '[Book] Get Books', 
@@ -16,7 +15,7 @@ export class GetBooks implements Action {
 
 export class GetBooksSuccess implements Action {
     public readonly type = EBookActions.GetBooksSuccess;
-    constructor(public payload: number) {}
+    constructor(public payload: IBook[]) {}
 }
 
 export class GetBook implements Action {
@@ -26,7 +25,7 @@ export class GetBook implements Action {
 
 export class GetBookSuccess implements Action {
     public readonly type = EBookActions.GetBookSuccess;
-    constructor(public payload: number) {}
+    constructor(public payload: IBook) {}
 }
 
 export type BookActions = GetBooks | GetBooksSuccess | GetBook | GetBookSuccess;

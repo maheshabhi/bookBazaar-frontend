@@ -18,5 +18,5 @@ const bookRoutes: Routes = [
 })
 
 export class BooksRoutingModule {
-
+ 
 }

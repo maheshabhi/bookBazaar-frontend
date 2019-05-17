@@ -18,11 +18,18 @@ export class BookEffect {
                 private _bookService:Bookservice, 
                 private _store: Store<IAppState> ) {}
 
+    // @Effect()
+    // getBooks$ = this._actions$.pipe(
+    //     ofType<GetBooks>(EBookActions.GetBooks),
+    //     switchMap(() => this._bookService.getBooks()),
+    //     switchMap((bookHttp: IBookHttp) => of(new GetBooksSuccess(bookHttp.books)))
+    // )
+
     @Effect()
     getBooks$ = this._actions$.pipe(
         ofType<GetBooks>(EBookActions.GetBooks),
         switchMap(() => this._bookService.getBooks()),
-        switchMap((bookHttp: IBookHttp) => of(new GetBooksSuccess(bookHttp.books)))
-    )
+        switchMap((userHttp: IBookHttp) => of(new GetBooksSuccess(userHttp.users)))
+    );
             
 }

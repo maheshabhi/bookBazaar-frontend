@@ -12,4 +12,4 @@ export const selectBookList = createSelector(
 export const selectSelectedBook = createSelector(
     selectBooks, 
     (state: IBookstate) => state.selectedBook
-)
+);

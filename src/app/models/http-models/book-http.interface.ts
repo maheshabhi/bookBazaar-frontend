@@ -1,5 +1,5 @@
-import { IBook } from "../../books/book";
+import { IBook } from '../../books/book';
 
 export interface IBookHttp {
-    books: IBook[];
+  users: IBook[];
 }
