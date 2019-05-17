@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Bookservice } from '../books.service';
+import { HttpHeaders } from "@angular/common/http";
+
 @Component({
     selector: 'app-book-create',
     templateUrl: './book-create.component.html',
@@ -25,8 +27,12 @@ export class BookCreateComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log("data", this.bookForm.value);
-        this._bookService.addBook(this.bookForm.value).subscribe(
+        // console.log("data", this.bookForm.value);
+        let data = JSON.stringify(this.bookForm.value);
+        console.log("Data", data);
+        let headers = new HttpHeaders();
+        headers = headers.append('content-type', 'application/json');
+        this._bookService.addBook(this.bookForm.value, headers).subscribe(
             data => {
                 console.log("Book added successfully!");
             }, error => {

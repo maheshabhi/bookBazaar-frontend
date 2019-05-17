@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row m-4">
+        <div class="col-md-3 mx-auto">
+                <div class="loginForm" *ngIf="login">
+                    <div class="form-title">
+                        <h4> Login </h4>
+                    </div>
+                    <br>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div>
+                            <mat-form-field>
+                                <input type="text" matInput formControlName="email" placeholder="Email" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+        
+                        <div>
+                            <mat-form-field>
+                                <input type="password" matInput formControlName="password" placeholder="Password" />
+                            </mat-form-field>
+                        </div>
+                        
+                        
+                        <div class="text-right">
+                            <button type="submit" mat-raised-button [disabled]="!loginForm.valid" color="primary"> Submit </button>
+                        </div>
+                        <br>
+                        <div>
+                            <a> New User? <span (click)="onLogin()">  Register now </span> </a>
+                        </div>
+                    </form>
+                </div>
+            <div class="signupForm" *ngIf="signup">
+                <div class="form-title">
+                    <h4> Register </h4>
+                </div>
+                <br>
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                    <div>
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="authorName" placeholder="Name" />
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="email" placeholder="Email"  />
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input type="password" matInput formControlName="password" placeholder="Password" />
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input type="password" matInput formControlName="passwordConf" placeholder="Confirm Password" />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="text-right">
+                        <button type="submit" mat-raised-button [disabled]="!signupForm.valid" color="primary"> Submit </button>
+                    </div>
+                    <div class="">
+                        <a> Already registered? <span (click)="onLogin()"> Login now </span> </a>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>

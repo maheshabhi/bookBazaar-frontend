@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BooksModule } from './books/books.module';
+import { AuthorModule } from "./author/author.module";
 import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 
@@ -20,7 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
         ConfirmDialogComponent
     ],
     imports: [
-        BrowserModule, BrowserAnimationsModule, BooksModule, AppRoutingModule, 
+        BrowserModule, BrowserAnimationsModule, BooksModule, AuthorModule, AppRoutingModule, 
         MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule
     ],
     providers: [],

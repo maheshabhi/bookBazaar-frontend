@@ -27,7 +27,7 @@ export class Bookservice {
         );
     }
 
-    addBook(data: Book) {
+    addBook(data: Book,headers) {
         console.log("Adding a book", data);
         const httpOptions = {
             headers: new HttpHeaders({
@@ -35,7 +35,7 @@ export class Bookservice {
             })
           };
         console.log("Adding a book", data, httpOptions);
-        return this._http.post<Book>(this.API_BASE_URL + '/books', data, httpOptions).pipe(
+        return this._http.post<Book>(this.API_BASE_URL + '/books', data, headers).pipe(
             map(res => res)
         );
     }
