@@ -1,5 +1,5 @@
 
-export interface Book {
+export interface IBook {
     title: String,
     author: String,
     description: String 

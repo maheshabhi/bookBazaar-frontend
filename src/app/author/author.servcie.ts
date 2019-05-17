@@ -13,11 +13,18 @@ export class AuthorService {
 
     authorRegister(data: Author) {
 
-        const httpOptions  = {
+        const httpOptions  = { 
             headers: new HttpHeaders({'Content-Type' : 'application/json'})
         };
 
         return this._http.post<Author>(this.API_BASE_URL+ '/book/author/register', data, httpOptions).pipe(
+            map((response) => response)
+        );
+    }
+
+    authorLogin(data) {
+    
+        return this._http.post<Author>(this.API_BASE_URL+ '/book/author/login', data).pipe(
             map((response) => response)
         );
     }

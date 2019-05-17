@@ -43,10 +43,11 @@ export class AuthorLoginComponent implements OnInit {
             data => {
                 console.log("data",data);
                 this.signupForm.reset();
-                this._router.navigate(['book/addBook']);
+                // this._router.navigate(['book/addBook']);
+                this.signup = !this.signup;
+                this.login = !this.login;
             }, error => {
                 console.log("Error occured while registering an author", error);
-                
             }
         )
     }
@@ -59,5 +60,18 @@ export class AuthorLoginComponent implements OnInit {
     onLogin() {
         this.signup = !this.signup;
         this.login = !this.login;
+    }
+
+    onSubmitLogin() {
+        let formData = this.loginForm.value;
+        this._authorService.authorLogin(formData).subscribe( 
+            data => {
+                console.log("data",data);
+                this.loginForm.reset();
+                this._router.navigate(['book/addBook']);
+            }, error => {
+                console.log("Error occured while registering an author", error);
+            }
+        )
     }
 }

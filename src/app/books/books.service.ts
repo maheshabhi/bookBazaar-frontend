@@ -4,7 +4,7 @@ import { environment } from "../../environments/environment";
 
 import { map } from "rxjs/operators";
 import { Observable } from 'rxjs';
-import { Book } from './book';
+import { IBook } from './book';
 
 @Injectable()
 
@@ -17,17 +17,17 @@ export class Bookservice {
     }
 
     getBooks() {
-        return this._http.get<Book>(this.API_BASE_URL + '/books').pipe(
+        return this._http.get<IBook>(this.API_BASE_URL + '/books').pipe(
             map(res => res));
     }
 
     getBookById(id: any) {
-        return this._http.get<Book>(this.API_BASE_URL+ '/books/'+ id).pipe(
+        return this._http.get<IBook>(this.API_BASE_URL+ '/books/'+ id).pipe(
             map(res => res)
         );
     }
 
-    addBook(data: Book,headers) {
+    addBook(data: IBook,headers) {
         console.log("Adding a book", data);
         const httpOptions = {
             headers: new HttpHeaders({
@@ -35,7 +35,7 @@ export class Bookservice {
             })
           };
         console.log("Adding a book", data, httpOptions);
-        return this._http.post<Book>(this.API_BASE_URL + '/books', data, headers).pipe(
+        return this._http.post<IBook>(this.API_BASE_URL + '/books', data, headers).pipe(
             map(res => res)
         );
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bookservice } from '../books.service';
-import { Book } from '../book';
+import { IBook } from '../book';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -12,7 +12,7 @@ import { ConfirmDialogComponent } from "../../dialog/confirmDialog.component";
 })
 export class BooksListComponent implements OnInit {
 
-    books: Book;
+    books: IBook;
     userName: string;
 
     constructor(private _bookService: Bookservice,
@@ -25,7 +25,7 @@ export class BooksListComponent implements OnInit {
 
     getBooks() {
         this._bookService.getBooks().subscribe(
-            (data: Book) => {
+            (data: IBook) => {
                 console.log("Books", data);
                 this.books = data;
             }, error => {

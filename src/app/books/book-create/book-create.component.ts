@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Bookservice } from '../books.service';
 import { HttpHeaders } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-book-create',
@@ -13,7 +14,8 @@ export class BookCreateComponent implements OnInit {
     bookForm: FormGroup;
 
     constructor(private _fb: FormBuilder,
-                private _bookService: Bookservice) {
+                private _bookService: Bookservice, 
+                private _router: Router) {
         this.bookForm = this._fb.group({
             title: ['', Validators.required], 
             author: ['', Validators.required], 
@@ -35,6 +37,8 @@ export class BookCreateComponent implements OnInit {
         this._bookService.addBook(this.bookForm.value, headers).subscribe(
             data => {
                 console.log("Book added successfully!");
+                this._router.navigate(['/books']);
+                this.bookForm.reset();
             }, error => {
                 console.log("Error occured while adding a book", error);
             }

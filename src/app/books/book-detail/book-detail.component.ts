@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Bookservice } from "../books.service";
-import { Book } from '../book';
+import { IBook } from '../book';
 import { Location } from "@angular/common";
 
 @Component({
@@ -13,7 +13,7 @@ import { Location } from "@angular/common";
 export class BookDetailComponent implements OnInit {
 
     id: any;
-    book: Book;
+    book: IBook;
     constructor(private _route: Router, 
                 private _activatedRoute:ActivatedRoute,
                 private _booKservice: Bookservice,
