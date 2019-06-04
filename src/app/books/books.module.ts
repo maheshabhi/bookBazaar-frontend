@@ -18,6 +18,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule  } from "@angular/material/core";
 
+// ngrx Modules
+
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
+
+import { appReducers } from "./store/reducers/app.reducers";
+// import { BookEffect } from "./store/effects/book.effects";
+
 // Importing the service
 import { Bookservice } from './books.service';
 import { AuthInterceptor } from "../auth.interceptor";
@@ -27,14 +36,17 @@ import { AuthInterceptor } from "../auth.interceptor";
     imports: [
         CommonModule, FormsModule,ReactiveFormsModule, BooksRoutingModule, HttpClientModule,
         MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        // StoreModule.forRoot(appReducers),
+        StoreModule.forFeature('books', appReducers),
+        // EffectsModule.forFeature([BookEffect]),
+        StoreRouterConnectingModule.forRoot({stateKey: 'router'})
     ], 
 
     declarations: [
         BooksComponent, BooksListComponent, BookDetailComponent, BookCreateComponent,
     ], 
-    providers: [Bookservice, MatDatepickerModule
-    ]
+    providers: [Bookservice, MatDatepickerModule]
 })
 
 

@@ -15,6 +15,9 @@ import { ConfirmDialogComponent } from "./dialog/confirmDialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from '@angular/material/button';
 
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from '@ngrx/effects';
+
 @NgModule({
     declarations: [
         AppComponent,PageNotFoundComponent, HeaderComponent, 
@@ -22,7 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
     ],
     imports: [
         BrowserModule, BrowserAnimationsModule, BooksModule, AuthorModule, AppRoutingModule, 
-        MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule
+        MatIconModule, MatToolbarModule, MatDialogModule, MatButtonModule,
+        StoreModule.forRoot({}),
     ],
     providers: [],
     entryComponents: [ ConfirmDialogComponent ],
